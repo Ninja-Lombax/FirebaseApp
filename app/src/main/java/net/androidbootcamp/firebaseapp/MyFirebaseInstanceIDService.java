@@ -1,0 +1,22 @@
+package net.androidbootcamp.firebaseapp;
+
+
+        import android.util.Log;
+
+        import com.google.firebase.iid.FirebaseInstanceId;
+        import com.google.firebase.iid.FirebaseInstanceIdService;
+
+public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
+    public static final String TAG = "MyFirebaseIIDService";
+
+    @Override
+    public void onTokenRefresh(){
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "Refreshed Token: " + refreshedToken);
+        sendRegistrationToServer(refreshedToken);
+    }
+
+    private void sendRegistrationToServer(String token){
+
+    }
+}
